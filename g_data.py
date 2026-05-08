@@ -74,7 +74,7 @@ risk_score = (
 )
 
 # Using sigmoid function
-prob = 1 / (1 + np.exp(-(risk_score, 5.5)))
+prob = 1 / (1 + np.exp(-(risk_score - 5.5)))
 
 sepsis = np.random.binomial(1, prob)
 
@@ -96,3 +96,6 @@ df = pd.DataFrame({
 
 # Save dataframe into csv
 df.to_csv('data/edu_perp_data.csv', index=False)
+
+print("Data created successfully")
+print("Stored in data folder")
