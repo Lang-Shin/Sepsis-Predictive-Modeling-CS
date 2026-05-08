@@ -74,7 +74,7 @@ risk_score = (
 )
 
 # Using sigmoid function
-prob = 1 / (1 + np.exp(-(risk_score - 5.5)))
+prob = 1 / (1 + np.exp(-(risk_score - 4)))
 
 sepsis = np.random.binomial(1, prob)
 
