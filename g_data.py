@@ -77,3 +77,22 @@ risk_score = (
 prob = 1 / (1 + np.exp(-(risk_score, 5.5)))
 
 sepsis = np.random.binomial(1, prob)
+
+df = pd.DataFrame({
+    'age' : age,
+    'temperature' : np.round(temp, 1),
+    'heart_rate' : np.round(heart_rate, 0),
+    'respiratory_rate' : np.round(respiratory_rate, 0),
+    'systolic_bp' : np.round(systolic_BP, 0),
+    'oxygen_sat' : np.round(oxygen_sat, 1),
+    'wbc' : np.round(wbc_count, 0),
+    'lactate' : np.round(lactate, 1),
+    'infection_hist' : infection_hist,
+    'mental_confusion' : mental_confusion,
+    'recent_surgery' : recent_surgery,
+    'sepsis' : sepsis
+})
+
+
+# Save dataframe into csv
+df.to_csv('data/edu_perp_data.csv', index=False)
