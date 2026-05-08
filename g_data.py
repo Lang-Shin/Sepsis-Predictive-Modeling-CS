@@ -40,3 +40,11 @@ systolic_BP = np.clip(systolic_BP, 70, 180)
 
 oxygen_sat = np.random.normal(97, 2.5, n)
 oxygen_sat = np.clip(oxygen_sat, 75, 100)
+
+
+# Generate Lab Metrics (char lab results)
+wbc_count = np.random.normal(8.5, 4.0, n)
+wbc_count = np.clip(wbc_count, 3000, 25000)
+
+lactate = np.random.normal(1.2, 0.8, n)
+lactate = np.clip(lactate, 0.5, 8.0)
