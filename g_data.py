@@ -48,3 +48,32 @@ wbc_count = np.clip(wbc_count, 3000, 25000)
 
 lactate = np.random.normal(1.2, 0.8, n)
 lactate = np.clip(lactate, 0.5, 8.0)
+
+
+# Clinical risk logic
+risk_score = (
+    (temp > 38.0).astype(int) * 2 +
+
+    (heart_rate > 100).astype(int) * 1.5 +
+
+    (respiratory_rate > 22).astype(int) * 2 +
+
+    (systolic_BP < 100).astype(int) * 2 +
+
+    (oxygen_sat < 94).astype(int) * 1.5 +
+
+    (wbc_count > 12000).astype(int) * 2 +
+
+    (lactate > 2.0).astype(int) * 3 +
+
+    (mental_confusion * 2) +
+
+    (recent_surgery * 1) +
+
+    (infection_hist * 1.5)
+)
+
+# Using sigmoid function
+prob = 1 / (1 + np.exp(-(risk_score, 5.5)))
+
+sepsis = np.random.binomial(1, prob)
