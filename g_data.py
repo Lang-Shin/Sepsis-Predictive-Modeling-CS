@@ -33,7 +33,7 @@ heart_rate = np.random.normal(82, 18, n)
 heart_rate = np.clip(heart_rate, 50, 160)
 
 respiratory_rate = np.random.normal(17, 5, n)
-repiratory_rate = np.clip(respiratory_rate, 10, 40)
+respiratory_rate = np.clip(respiratory_rate, 10, 40)   
 
 systolic_BP = np.random.normal(118, 18, n)
 systolic_BP = np.clip(systolic_BP, 70, 180)
@@ -56,7 +56,7 @@ risk_score = (
 
     (heart_rate > 100).astype(int) * 1.5 +
 
-    (respiratory_rate > 22).astype(int) * 2 +
+    (respiratory_rate > 22).astype(int) * 2 +    # now uses correctly clipped values
 
     (systolic_BP < 100).astype(int) * 2 +
 
