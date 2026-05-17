@@ -63,7 +63,7 @@ print("\n\n", classification_report(y_test, y_pred))
 
 
 # Visualization
-plt.figure(figsize=(20, 8))
+plt.figure(figsize=(12, 7))
 tree.plot_tree( d_tree, 
                 max_depth=3,
                 feature_names=features.columns,
@@ -90,7 +90,8 @@ desc = ['Precision', 'Recall', 'F1-Score', 'Accuracy']
 scale = [0.68, 0.71, 0.69, 0.72]
 axes[1].bar(desc, scale, color="#2e7742", edgecolor="#000000") # Added dummy data so .plot() works
 axes[1].set_title('Second Plot')
-axes[1].grid(True, alpha=0.4, linestyle="--")
+axes[1].grid(True, alpha=0.7)
+axes[1].set_axisbelow(True)
 
 plt.tight_layout() # Keeps things from overlapping
 plt.show()
