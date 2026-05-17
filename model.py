@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from sklearn import tree
 import seaborn as sns
 
+
 df = pd.read_csv('data/edu_perp_data.csv')
 
 features = df.iloc[:, :-1]   # features of the data
@@ -38,7 +39,7 @@ grid_search = GridSearchCV(
 grid_search.fit(X_train, y_train)
 print("Best Hyperparameters:", grid_search.best_params_)
 
-# best model found by GridSearchCV
+# Use the best model found by GridSearchCV
 d_tree = grid_search.best_estimator_
 
 
@@ -54,15 +55,11 @@ print(f"Mean Recall        : {recall_scores.mean():.2f} ± {recall_scores.std():
 print(f"Accuracy  per fold : {np.round(accuracy_scores, 2)}")
 print(f"Mean Accuracy      : {accuracy_scores.mean():.2f} ± {accuracy_scores.std():.2f}")
 
+y_pred = d_tree.predict(X_test)
 
-y_prob = d_tree.predict_proba(X_test)[:, 1]
-
-threshold = 0.35   # adjust this value between 0 and 1 to tune sensitivity
-y_pred_adjusted = (y_prob >= threshold).astype(int)
-
-print(f"\n\n\n--- Test Set Results (Adjusted Threshold = {threshold}) ---")
-print("\n", confusion_matrix(y_test, y_pred_adjusted))
-print("\n\n", classification_report(y_test, y_pred_adjusted))
+print("\n--- Test Set Results ---")
+print("\n", confusion_matrix(y_test, y_pred))
+print("\n\n", classification_report(y_test, y_pred))
 
 
 # Visualization
@@ -79,7 +76,7 @@ plt.show()
 
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
-cm = confusion_matrix(y_test, y_pred_adjusted)
+cm = confusion_matrix(y_test, y_pred)
 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
             xticklabels=['No Sepsis', 'Sepsis'],
             yticklabels=['No Sepsis', 'Sepsis'],
@@ -91,8 +88,9 @@ axes[0].set_xlabel('Predicted')
 # 4. Use 1D indexing for the second plot
 desc = ['Precision', 'Recall', 'F1-Score', 'Accuracy']
 scale = [0.68, 0.71, 0.69, 0.72]
-axes[1].bar(desc, scale) # Added dummy data so .plot() works
+axes[1].bar(desc, scale, color="#2e7742", edgecolor="#000000") # Added dummy data so .plot() works
 axes[1].set_title('Second Plot')
+axes[1].grid(True, alpha=0.4, linestyle="--")
 
 plt.tight_layout() # Keeps things from overlapping
 plt.show()
