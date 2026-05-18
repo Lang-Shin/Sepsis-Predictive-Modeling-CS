@@ -3,7 +3,7 @@ import pandas as pd
 
 
 np.random.seed(42)  
-n = 1500           # data threshold
+n = 1500            # num of samples
 
 
 # Generate Independent Features
