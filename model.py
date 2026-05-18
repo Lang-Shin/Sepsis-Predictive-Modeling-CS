@@ -85,13 +85,13 @@ axes[0].set_title('Confusion Matrix')
 axes[0].set_ylabel('Actual')
 axes[0].set_xlabel('Predicted')
 
-# 4. Use 1D indexing for the second plot
+
 desc = ['Precision', 'Recall', 'F1-Score', 'Accuracy']
 scale = [0.68, 0.71, 0.69, 0.72]
-axes[1].bar(desc, scale, color="#2e7742", edgecolor="#000000") # Added dummy data so .plot() works
-axes[1].set_title('Second Plot')
+axes[1].bar(desc, scale, color="#2e7742", edgecolor="#000000") 
+axes[1].set_title('Test Set Performance Metrics')
 axes[1].grid(True, alpha=0.7)
 axes[1].set_axisbelow(True)
 
-plt.tight_layout() # Keeps things from overlapping
+plt.tight_layout()
 plt.show()
