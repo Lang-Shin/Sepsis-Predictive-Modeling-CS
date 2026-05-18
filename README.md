@@ -1,7 +1,11 @@
 # Sepsis Prediction using Decision Tree Classifier
 
+
+
 ## Authors
 Created by: **Charles William Bajura** && **Carlo Castro**
+
+
 
 ## Overview
 This project is a Machine Learning-based Sepsis Prediction System built using the **Decision Tree Classifier** algorithm.
@@ -9,6 +13,8 @@ This project is a Machine Learning-based Sepsis Prediction System built using th
 The model predicts whether a patient is likely to have **Sepsis** based on medical-related input features from the dataset.
 
 ---
+
+
 
 ## Machine Learning Algorithm Used
 - Decision Tree Classifier
@@ -19,6 +25,8 @@ The model also uses:
 - Confusion Matrix and Classification Report for evaluation
 
 ---
+
+
 
 ## Dataset Information
 Dataset file:
@@ -36,6 +44,8 @@ The dataset contains:
 > This dataset is used strictly for educational and research practice purposes only.
 
 ---
+
+
 
 ## Features of the Project
 - Data preprocessing using Pandas
@@ -64,91 +74,7 @@ project-folder/
 
 ---
 
-## Model Workflow
 
-### 1. Load Dataset
-The dataset is loaded using Pandas.
-
-```python
-df = pd.read_csv('data/edu_perp_data.csv')
-```
-
----
-
-### 2. Split Features and Labels
-
-```python
-features = df.iloc[:, :-1]
-labels = df.iloc[:, -1]
-```
-
----
-
-### 3. Train/Test Split
-- 90% Training Data
-- 10% Testing Data
-
-```python
-train_test_split(...)
-```
-
----
-
-### 4. Hyperparameter Tuning
-The model uses **GridSearchCV** to automatically find the best parameters.
-
-Parameters tuned:
-- `max_depth`
-- `min_samples_split`
-- `min_samples_leaf`
-- `class_weight`
-
-The scoring metric used is:
-
-```python
-scoring='recall'
-```
-
-Recall is prioritized because detecting actual sepsis cases is very important.
-
----
-
-### 5. Cross Validation
-The project uses:
-
-```python
-StratifiedKFold(n_splits=5)
-```
-
-This helps evaluate the model more reliably.
-
-Metrics evaluated:
-- Recall
-- Accuracy
-
----
-
-### 6. Prediction and Evaluation
-
-The model generates:
-- Confusion Matrix
-- Classification Report
-
-Metrics include:
-- Precision
-- Recall
-- F1-Score
-- Accuracy
-
----
-
-### 7. Visualization
-The project visualizes:
-- Decision Tree Structure
-- Confusion Matrix Heatmap
-- Performance Metrics Bar Chart
-
----
 
 ## Sample Output
 
@@ -165,6 +91,8 @@ Mean Accuracy     : 0.72 ± 0.01
 
 ---
 
+
+
 ## Educational Purpose Notice
 
 This project is intended only for:
@@ -172,6 +100,3 @@ This project is intended only for:
 - Educational demonstrations
 - Academic projects
 - Research learning
-
----
-
