@@ -67,6 +67,8 @@ project-folder/
 ├── data/
 │   └── edu_perp_data.csv
 │
+├── g_data.py
+│
 ├── model.py
 │
 └── README.md
